@@ -49,3 +49,12 @@ def create_rectangle_from_input():
     width = float(input("Enter width of the Rectangle: "))
 
     return Rectangle(color, is_filled, x_top_left, y_top_left, length, width)
+
+if __name__ == "__main__":
+    # Call the function to create a rectangle from user input
+    rectangle = create_rectangle_from_input()
+
+    # Print the details of the created rectangle
+    print(rectangle)
+
+
