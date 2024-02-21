@@ -70,6 +70,7 @@ if a == c or b == c:
 
 #examples from w3schools theme
 
+# example 1
 a = 200
 b = 33
 if b > a:
@@ -79,6 +80,7 @@ elif a == b:
 else:
   print("a is greater than b");
 
+# example 2
 a = 33
 b = 33
 if b > a:
@@ -86,12 +88,15 @@ if b > a:
 elif a == b:
   print("a and b are equal");
 
+# example 3
 if a > b: print("a is greater than b")
 
+# example 4
 a = 330
 b = 330
 print("A") if a > b else print("=") if a == b else print("B")
 
+# example 5
 a = 200
 b = 33
 c = 500
@@ -99,6 +104,7 @@ if a > b or a > c:
   print("At least one of the conditions is True");
 
 
+# example 6
 x = 41
 
 if x > 10:
