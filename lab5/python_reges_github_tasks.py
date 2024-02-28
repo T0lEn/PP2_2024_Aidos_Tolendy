@@ -1,40 +1,41 @@
 import re
-#ex1
+
+
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+
+pattern = re.compile(r'ab*')
+
+
+matches = pattern.findall(data)
+print("Найденные соответствия:", matches)
+
+#ex2
+
+import re
+
 def match_pattern(string):
-    pattern = r'ab*'
+    pattern = r'ab{2,3}'
     if re.fullmatch(pattern, string):
         return True
     else:
         return False
 
 
-user_input = input("Введи строку: ")
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-if match_pattern(user_input):
-    print(f"'{user_input}' соответствует паттерну")
+if match_pattern(data):
+    print(f"Строка из файла соответствует паттерну '{data}'")
 else:
-    print(f"'{user_input}' не соответствует паттерну");
+    print(f"Строка из файла не соответствует паттерну '{data}'")
 
-
-#ex2
-
-def match_pattern(string):
-    pattern2 = r'ab{2,3}'
-    if re.fullmatch(pattern2, string):
-        return True
-    else:
-        return False
-
-
-user_input = input("Введи строку: ")
-
-if match_pattern(user_input):
-    print(f"'{user_input}' соответствует паттерну")
-else:
-    print(f"'{user_input}' не соответствует паттерну");
 
 #ex3
 
+
+import re
 
 def find_sequences(string):
     pattern = r'[a-z]+_[a-z]+'
@@ -42,17 +43,21 @@ def find_sequences(string):
     return sequences
 
 
-user_input = input("Введите строку: ")
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-sequences = find_sequences(user_input)
+sequences = find_sequences(data)
 if sequences:
     print("Найдено:")
     for sequence in sequences:
         print(sequence)
 else:
-    print("Нету");
+    print("Нету")
+
 
 #ex4
+
+import re
 
 def find_sequences(string):
     pattern = r'[A-Z][a-z]+'
@@ -60,18 +65,22 @@ def find_sequences(string):
     return sequences
 
 
-user_input = input("Введите строку: ")
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-sequences = find_sequences(user_input)
+sequences = find_sequences(data)
 if sequences:
     print("Найдено:")
     for sequence in sequences:
         print(sequence)
 else:
-    print("Нету");
+    print("Нету")
+
 
 
 # ex5
+
+import re
 
 def match_pattern(string):
     pattern = r'a.*b$'
@@ -80,76 +89,101 @@ def match_pattern(string):
     else:
         return False
 
+# Открываем файл .txt для чтения с указанием кодировки 'utf-8'
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-user_input = input("Введи строку: ")
-
-if match_pattern(user_input):
-    print(f"'{user_input}' соответствует паттерну")
+if match_pattern(data):
+    print(f"Строка из файла соответствует паттерну '{data}'")
 else:
-    print(f"'{user_input}' не соответствует паттерну");
+    print(f"Строка из файла не соответствует паттерну '{data}'")
+
 
 
 #ex 6
 
 def replace_with_colon(string):
-   
     modified_string = string.replace(' ', ':').replace(',', ':').replace('.', ':')
     return modified_string
 
 
-user_input = input("Введите строку: ")
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
 
-
-modified_string = replace_with_colon(user_input)
+modified_string = replace_with_colon(data)
 print("Строка после замены:")
 print(modified_string)
 
+
 #ex7
 
+
+import re
 
 def snake_to_camel(snake_case_string):
     camel_case_string = re.sub(r'_([a-z])', lambda x: x.group(1).upper(), snake_case_string)
     return camel_case_string
 
-snake_case_input = input("Введите строку в стиле змеиного регистра: ")
-camel_case_output = snake_to_camel(snake_case_input)
+
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+camel_case_output = snake_to_camel(data)
 print("Строка в стиле верблюжьего регистра:")
 print(camel_case_output)
 
+
 #ex8
+
+import re
 
 def split_at_uppercase(string):
     splitted_strings = re.findall(r'[A-ZА-Я]?[a-zа-я]*', string)
     return splitted_strings
 
-user_input = input("Введите строку: ")
-splitted_strings = split_at_uppercase(user_input)
+
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+splitted_strings = split_at_uppercase(data)
 print("Результат разделения:")
 print(splitted_strings)
 
+
 #ex9
 
+
+import re
 
 def insert_spaces(string):
     modified_string = re.sub(r'([a-zа-я])([A-ZА-Я])', r'\1 \2', string)
     return modified_string
 
-user_input = input("Введите строку: ")
-modified_output = insert_spaces(user_input)
+
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+modified_output = insert_spaces(data)
 print("Строка с пробелами:")
 print(modified_output)
 
+
 #ex10
 
+
+import re
 
 def camel_to_snake(camel_case_string):
     snake_case_string = re.sub(r'(?<!^)(?=[A-ZА-Я])', '_', camel_case_string).lower()
     return snake_case_string
 
-camel_case_input = input("Введите строку в стиле верблюжьего регистра: ")
-snake_case_output = camel_to_snake(camel_case_input)
+with open('lab5/row.txt', 'r', encoding='utf-8') as file:
+    data = file.read()
+
+snake_case_output = camel_to_snake(data)
 print("Строка в стиле змеиного регистра:")
 print(snake_case_output)
+
 
 
 
