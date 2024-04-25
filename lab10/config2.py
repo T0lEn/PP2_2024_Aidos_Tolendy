@@ -1,0 +1,5 @@
+DB_NAME = "snakedb"
+DB_USER = "postgres"
+DB_PASSWORD = "Aidosmaidos"
+DB_HOST = "localhost"  
+DB_PORT = "5432"        
